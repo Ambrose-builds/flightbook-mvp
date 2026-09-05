@@ -213,7 +213,7 @@ export default function App() {
   };
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/flights')
+    fetch('https://flightbook-mvp.onrender.com/api/flights')
       .then(res => res.json())
       .then((data: Flight[]) => {
         if (data && data.length > 0) {
@@ -232,7 +232,7 @@ export default function App() {
   useEffect(() => {
     if (selectedFlight) {
       setSelectedSeat('');
-      fetch(`http://localhost:8000/api/occupied-seats/${selectedFlight.flight_number}`)
+      fetch(`https://flightbook-mvp.onrender.com/api/occupied-seats/${selectedFlight.flight_number}`)
         .then(res => res.json())
         .then(data => setOccupiedSeats(data))
         .catch(() => setOccupiedSeats([]));
@@ -252,7 +252,7 @@ export default function App() {
     }
 
     try {
-      const res = await fetch('http://localhost:8000/api/bookings', {
+      const res = await fetch('https://flightbook-mvp.onrender.com/api/bookings', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -285,7 +285,7 @@ export default function App() {
     setLookupError('');
     setSearchedBooking(null);
     try {
-      const res = await fetch(`http://localhost:8000/api/bookings/${searchPnr.trim()}`);
+      const res = await fetch(`https://flightbook-mvp.onrender.com/api/bookings/${searchPnr.trim()}`);
       if (res.ok) {
         const data = await res.json();
         setSearchedBooking(data);
