@@ -1,1 +1,13 @@
 @import "tailwindcss";
+/* Enable smooth touch scrolling on mobile */
+html, body {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  touch-action: manipulation;
+}
+
+/* Hardware accelerate interactive components */
+button, .flight-card {
+  will-change: transform;
+  -webkit-tap-highlight-color: transparent;
+}
